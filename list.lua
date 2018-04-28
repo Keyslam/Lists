@@ -36,9 +36,10 @@ end
 
 --- Removes an object from the List.
 -- @param obj The object to remove
+-- @param index The known index
 -- @return self
-function List:remove(obj)
-   local index = self.pointers[obj]
+function List:remove(obj, index)
+   index = index or self.pointers[obj]
    local size  = self.size
 
    if index == size then
