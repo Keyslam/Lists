@@ -1,51 +1,73 @@
-local List = {}
-local mt = {__index = List}
+local List   = {}
+List.__index = List
 
+--- Creates a new List.
+-- @return A new list
 function List.new()
    return setmetatable({
-      numerical = {},
-      named     = {},
-      size      = 0,
-   }, mt)
+      objects  = {},
+      pointers = {},
+      size     = 0,
+   }, List)
 end
 
+--- Clears the List completely.
+-- @return self
 function List:clear()
-   self.numerical = {}
-   self.named     = {}
-   self.size      = 0
+   self.objects  = {}
+   self.pointers = {}
+   self.size     = 0
+
+   return self
 end
 
+--- Adds an object to the List.
+-- @param obj The object to add
+-- @return self
 function List:add(obj)
    local size = self.size + 1
 
-   self.numerical[size] = obj
-   self.named[obj]      = size
-   self.size            = size
+   self.objects[size] = obj
+   self.pointers[obj] = size
+   self.size          = size
+
+   return self
 end
 
+--- Removes an object from the List.
+-- @param obj The object to remove
+-- @return self
 function List:remove(obj)
-   local index = self.named[obj]
+   local index = self.pointers[obj]
    local size  = self.size
 
    if index == size then
-      self.numerical[size] = nil
+      self.objects[size] = nil
    else
-      local other = self.numerical[size]
+      local other = self.objects[size]
 
-      self.numerical[index] = other
-      self.named[other]     = index
+      self.objects[index]  = other
+      self.pointers[other] = index
+
+      self.objects[size] = nil
    end
 
-   self.named[obj] = nil
+   self.pointers[obj] = nil
    self.size = size - 1
 end
 
-function List:get(i)
-   return self.numerical[i]
+--- Gets an object by numerical index.
+-- @param index The index to look at
+-- @return The object at the index
+function List:get(index)
+   return self.objects[index]
 end
 
-function List:getIndex(obj)
-   return self.named[obj]
+--- Gets if the List has the object.
+-- @param obj The object to search for
+-- @param true if the list has the object, false otherwise
+function List:has(obj)
+   return self.pointers[obj] and true
 end
 
 return setmetatable(List, {
