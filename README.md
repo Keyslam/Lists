@@ -31,10 +31,11 @@ end
 myList:remove(a) -- Removes object 'a' from the list
 myList:remove(c)
 
+-- Getting
+local o = myList:get(1) -- Gets objects at index 1
+print(myList:has(o)) -- true
+
 -- Clearing
 myList:clear() -- Clears the list of all objects
 
--- Getting
-myList:get(index) -- Gets objects at index 'index'
-myList:getIndex(obj) -- Gets the index of object 'obj'
 ```
