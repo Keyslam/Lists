@@ -20,6 +20,10 @@ mySet:add("b")
 mySet:add("c")
 mySet:add( {"hello"} )
 
+-- Duplicate objects:
+mySet:add("a") -- This does nothing; "a" is already in the set.
+
+
 
 -- Iteration
 for i = 1, mySet.size do -- 'set.size' holds the length of the set
@@ -31,6 +35,7 @@ for i = 1, mySet.size do -- 'set.size' holds the length of the set
            {"hello"}
    ]]
 end
+
 
 
 -- Removal
