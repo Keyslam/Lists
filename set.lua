@@ -169,7 +169,7 @@ Set.__sub = Set.complement
 
 Set.__mul = Set.intersection
 
-Set.__div = Set.difference
+Set.__mod = Set.difference
 
 Set.__concat = Set.union
 
