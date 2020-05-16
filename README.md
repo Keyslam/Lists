@@ -13,37 +13,41 @@ local Set = require("set")
 -- Creation
 local mySet = Set.new()   -- or simply Set()
 
--- Adding objects
-local a = {name = "obj_a"}
-local b = {name = "obj_b"}
-local c = {name = "obj_c"}
 
-mySet:add(a) -- Adds object 'a' to the list
-mySet:add(b)
-mySet:add(c)
+-- Adding objects
+mySet:add("a") -- Adds object 'a' to the list.
+mySet:add("b")
+mySet:add("c")
+mySet:add( {"hello"} )
+
 
 -- Iteration
 for i = 1, mySet.size do -- 'set.size' holds the length of the set
    local obj = mySet:get(i)
-   print(obj.name) --[[
-                       obj_a
-                       obj_b
-                       obj_c
-                     ]]
+   print(obj) --[[
+           'a'
+           'b'
+           'c'
+           {"hello"}
+   ]]
 end
+
 
 -- Removal
 mySet:remove(a) -- Removes object 'a' from the set
-mySet:remove(c)
+
 
 -- Getting
 local o = mySet:get(1) -- Gets objects at index 1
 
+
 -- Checking
 mySet:has(o) -- returns true
 
+
 -- Clearing
 mySet:clear() -- Clears the set of all objects
+
 
 -- Copying
 local copySet = mySet:copy()
