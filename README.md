@@ -51,7 +51,7 @@ local copySet = mySet:copy()
 
 
 # Advanced Set operations (optional)
-These below operations may not be largely used by 
+Includes operations common in math set theory
 ```lua
 local a, b, c = "a", "b", "c"
 
