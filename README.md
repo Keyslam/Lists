@@ -57,16 +57,15 @@ local copySet = mySet:copy()
 # Advanced Set operations (optional)
 Includes operations common in math set theory
 ```lua
-local a, b, c = "a", "b", "c"
 
 local set_1 = Set()
-:add(a)           -- set_1 ->  set{"a", "b"}
-:add(b)  
+:add('a')           -- set_1 ->  set{"a", "b"}
+:add('b')  
 -- Method chaining
 
 local set_2 = Set()
-:add(b)           -- set_2 ->  set{"b", "c"}
-:add(c)
+:add('b')           -- set_2 ->  set{"b", "c"}
+:add('c')
 
 
 -- Set union:
