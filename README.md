@@ -1,4 +1,5 @@
-# Sets
+# SSets
+Sparse Sets:
 An adaption of tables that allowes for quick removal.
 
 Note that sets cannot have duplicate objects.
